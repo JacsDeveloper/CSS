@@ -25,7 +25,7 @@ body {
 
 header {
   width: 100vw;
-  height: 75px;
+  height: 47px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,20 +60,23 @@ a {
 }
 
 .container-logo img {
-  width: 120px;
-  height: 65px;
+  width: 80px;
+  height: auto;
   object-fit: cover;
+  position: absolute;
+  top: -13px;
 }
 
 .container-logo label {
   color: white;
   cursor: pointer;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 2em;
+  font-family: Impact, Haettenschweiler, "Arial Narrow", sans-serif;
+  font-size: 1.7em;
   text-shadow: 0 3px 17px rgba(0, 0, 0, 0.3);
   margin-left: 13px;
   position: absolute;
-  top: 23%;
+  top: -3px;
+  left: 77px;
 }
 
 .buscar {
@@ -134,10 +137,10 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   background: var(--gradientBlue);
   color: #fff;
-  margin-top: 7px;
-  padding: 17px;
+  padding: 7px;
 }
 
 footer label {
@@ -145,21 +148,14 @@ footer label {
   font-size: 1em;
   font-weight: bold;
 }
-
-footer span i {
-  font-size: 30px;
-  margin-bottom: 7px;
+.label-css {
+  margin-top: 27px;
 }
 
 .img-center-footer {
   position: absolute;
-  top: -70px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  object-fit: cover;
-  box-shadow: 0 3px 17px rgba(255, 255, 255, 0.37);
+  top: -47px;
+  width: 90px;
 }
 
 /************************************************************
@@ -169,7 +165,7 @@ footer span i {
 /*** CONTAINER VACIO (ERROR header fixed) ***/
 .container-vacio {
   display: flex;
-  margin-bottom: 87px;
+  margin-bottom: 3.9%;
 }
 
 .line-hr {
