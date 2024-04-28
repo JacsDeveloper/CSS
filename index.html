@@ -245,7 +245,7 @@
       <p>
         Existen "dos (2) modelos de cajas" por así decirlo.
         <ol class="lista-2-boxmodel">
-          <li><b>Caja Estándar: </b>Un contenedor estándar se le define ancho y alto (width/height), pero a partir de ahí, todas las propiedades añadidas se suman al valor total del ancho y alto del contenedor.</li>
+          <li><b>Caja Estándar: </b>Un contenedor estándar se le define ancho y alto (width/height), pero a partir de ahí, todas las propiedades añadidas (padding, margin, etc.) se suman al valor total del ancho y alto del contenedor.</li>
           <li><b>Caja Alternativa: </b>Se define el ancho y alto de la caja (width/height) y va a ser la única medida establecida, NO se verá afectada por las medidas de otras propiedades. Para que esto funcione, se debe poner <span class="code-line">box-sizing: border-box;</span> dentro de la etiqueta <span class="high-txt">HTML --></span><span class="code-line"> html { box-sizing: border-box; }</span> o definirlo para que afecte a TODOS los elementos de la página, <span class="code-line">* { box-sizing: border-box; }</span>.
           <br>
           Esta es la forma mas usual, ya que defines el tamaño de algún elemento y lo respeta.</li>
@@ -265,7 +265,7 @@
         Los principales son <b>top y left</b>, también se usan <b>right y bottom</b>  pero aveces son innecesarios ya que con solo top y left se puede posicionar un elemento, el valor que le asignemos es la cantidad de espacio que se va a mover dentro de su caja padre.  <br><br>
         La propiedad <span class="code-line">position</span> tiene cuatro (4) formas de posicionar las cajas.
 
-        <ol class="lista-position">
+        <ol class="lista">
           <!-- 1. Position relative -->
           <li><b>relative: </b>Los elementos se posicionan de acuerdo al flujo del documento, osea en el orden que se haya puesto en el HTML. <br> <span class="code-line">position: relative;</span> se desplaza la cantidad que uno establezca en el <b>top & left</b> <span class="high-txt">PERO SIEMPRE CONSERVANDO SU ESPACIO ORIGINAL, NO ES OCUPADO POR OTROS ELEMENTOS</span> y no afecta la posición de los otros, osea que el espacio que se le da al elemento desde el principio, es el mismo, su espacio original se mantiene. <br><br>
   
@@ -340,9 +340,8 @@
           <li><b>fixed: </b></li>
           <li><b>sticky: </b></li>
         </ol>
-      </p>
-     
-      Después va explicación de Z-INDEX.
+        Después va explicación de Z-INDEX.
+      </p>     
     </div>
 
     <!-- ***********************************************************
