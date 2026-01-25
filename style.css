@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
+
+
 :root {
   --electronBlue: #0984e3;
   --gradientBlue: linear-gradient(to left, #00c6ff, #0984e3 50%, #00c6ff);
   --gradientTitle: linear-gradient(to right, #0984e3, #2b32b2);
   --gradientSubtitle: linear-gradient(to right, #0984e3, #2b32b2);
   --body-bg: #c7ecee;
-  --gray-code: #2d3436;
   --citeBlue: #2b32b2;
 }
 
@@ -15,7 +17,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background: var(--body-bg);
 }
 
@@ -65,7 +67,7 @@ a {
      FOOTER
 ************************************************************/
 
-footer {
+.footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,17 +75,8 @@ footer {
   position: relative;
   background: var(--gradientBlue);
   color: #fff;
-  padding: 7px;
-}
-
-footer label {
-  font-family: "Courier New", Courier;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.label-css {
-  margin-top: 27px;
+  margin-top: 37px;
+  padding-top: 47px;
 }
 
 .img-center-footer {
@@ -114,8 +107,7 @@ footer label {
 
 .code-line {
   font-family: "JetBrains Mono", monospace;
-  color: var(--gray-code);
-  text-transform: lowercase;
+  color: var(--citeBlue);
   font-style: italic;
 }
 
@@ -137,7 +129,7 @@ footer label {
 }
 
 .subtitle {
-  width: 40%;
+  width: fit-content;
   background: var(--gradientSubtitle);
   color: #fff;
   border-radius: 9px;
@@ -159,22 +151,17 @@ footer label {
   color: var(--electronBlue);
   border-radius: 7px;
   border: dotted 2px var(--electronBlue);
-  padding: 3px;
-  margin: 9px 0;
+  padding: 2px 1px 1px 3px;
+  margin: 7px 0;
   font-weight: bold;
 }
 
-.images {
-  width: 47%;
+.img {
+  width: 60%;
   margin-top: 9px;
   display: block;
   object-fit: cover;
   border-radius: 9px;
-  border: solid 2px var(--electronBlue);
-}
-
-.img-no-border {
-  border: none;
 }
 
 .lista {
@@ -202,71 +189,57 @@ footer label {
   width: 100%;
   height: 100%;
   padding: 27px 0 0 17px;
-  font-size: 1.3em;
+  font-size: 1em;
   border: none;
   color: white;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.53);
+}
+
+.container-source__html,
+.container-source__css,
+.container-source__rtdo {
+  outline: solid 0.3px var(--electronBlue);
+  border-radius: 3px;
+  position: relative;
 }
 
 .container-source__html {
-  outline: solid 0.3px var(--electronBlue);
-  border-radius: 3px;
   grid-column: 1;
-  position: relative;
+}
+
+.container-source__css {
+  grid-column: 2;
+}
+
+.container-source__rtdo {
+  grid-column: 3;
+  background: rgba(0, 0, 0, 0.53);
+}
+
+.container-source__html::after,
+.container-source__css::after,
+.container-source__rtdo::after {
+  position: absolute;
+  top: -17px;
+  right: 7px;
+  padding: 3px 7px;
+  border-radius: 7px;
+  color: white;
+  font-weight: 400;
+  background: var(--electronBlue);
+  box-shadow: 0 3px 17px rgba(255, 255, 255, 0.17);
 }
 
 .container-source__html::after {
   content: "HTML";
-  position: absolute;
-  top: -17px;
-  right: 23px;
-  padding: 3px 7px;
-  border-radius: 7px;
-  color: white;
-  font-weight: 400;
-  background: var(--electronBlue);
-  box-shadow: 0 3px 17px rgba(255, 255, 255, 0.17);
-}
-
-.container-source__css {
-  outline: solid 0.3px var(--electronBlue);
-  border-radius: 3px;
-  grid-column: 2;
-  position: relative;
 }
 
 .container-source__css::after {
   content: "CSS";
-  position: absolute;
-  top: -17px;
-  right: 23px;
-  padding: 3px 7px;
-  border-radius: 7px;
-  color: white;
-  font-weight: 400;
-  background: var(--electronBlue);
-  box-shadow: 0 3px 17px rgba(255, 255, 255, 0.17);
-}
-
-.container-source__rtdo {
-  outline: solid 0.3px var(--electronBlue);
-  border-radius: 3px;
-  grid-column: 3;
-  background: rgba(0, 0, 0, 0.37);
-  position: relative;
 }
 
 .container-source__rtdo::after {
   content: "RTDO";
-  position: absolute;
-  top: -17px;
-  right: 23px;
-  padding: 3px 7px;
-  border-radius: 7px;
-  color: white;
-  font-weight: 400;
-  background: var(--electronBlue);
-  box-shadow: 0 3px 17px rgba(255, 255, 255, 0.17);
 }
 
 .ej-caja {
