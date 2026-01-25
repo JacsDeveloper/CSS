@@ -25,10 +25,11 @@ body {
      INICIO - HEADER
 ************************************************************/
 
-header {
+.header {
   width: 100vw;
   height: 37px;
   position: fixed;
+  top: 0;
   z-index: 1000;
   background: var(--gradientBlue);
   box-shadow: 0 3px 17px rgba(0, 0, 0, 0.3);
@@ -89,12 +90,6 @@ a {
      INICIO CSS JACS COURSE
 ************************************************************/
 
-/*** CONTAINER VACIO (ERROR header fixed) ***/
-.container-vacio {
-  display: flex;
-  margin-bottom: 76px;
-}
-
 .line-hr {
   margin: 20px 0;
   opacity: 0.3;
@@ -124,6 +119,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 37px;
+  z-index: 999;
   padding: 3px;
   margin: 27px 0;
 }
@@ -225,7 +223,7 @@ a {
   padding: 3px 7px;
   border-radius: 7px;
   color: white;
-  font-weight: 400;
+  font-weight: 700;
   background: var(--electronBlue);
   box-shadow: 0 3px 17px rgba(255, 255, 255, 0.17);
 }
