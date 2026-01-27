@@ -80,8 +80,29 @@
 
     <hr class="line-hr" color="00c6ff">
 
-    <!-- Subtitle Instrucciones básicas -->
-    <h3 class="subtitle">Propiedades | Instrucciones Básicas: </h3>
+    <p>
+      Existen "dos (2) modelos de cajas" por así decirlo.
+    <ol class="lista">
+      <li><b>Caja Estándar: </b>Un contenedor estándar se le define ancho y alto (width/height), pero a partir de ahí,
+        todas las propiedades añadidas (padding, margin, etc.) se suman al valor total del ancho y alto del contenedor.
+      </li>
+      <li><b>Caja Alternativa: </b>Se define el ancho y alto de la caja (width/height) y va a ser la única medida
+        establecida, NO se verá afectada por las medidas de otras propiedades. Para que esto funcione, se debe poner
+        <span class="code-line">box-sizing: border-box;</span> dentro de la etiqueta <span class="high-txt">HTML
+          --></span><span class="code-line"> html { box-sizing: border-box; }</span> o definirlo para que afecte a TODOS
+        los elementos de la página, <span class="code-line">* { box-sizing: border-box; }</span>.
+        <br>
+        Esta es la forma mas usual, ya que defines el tamaño de algún elemento y lo respeta.
+      </li>
+    </ol>
+    </p>
+  </div>
+
+  <!-- ***********************************************************
+             PROPIEDADES BASICAS EN CSS
+        ************************************************************ -->
+  <h2 class="title-section">PROPIEDADES BASICAS EN CSS</h2>
+  <div class="container90">
 
     <ul class="lista">
       <!-- 1. Width -->
@@ -140,7 +161,8 @@
       <!-- 8. Outline -->
       <li><b>outline: </b>Es un <span class="high-txt">CONTORNO/BORDE</span> que se aplica al contenedor.
         LA DIFERENCIA con la propiedad <span class="code-line">border</span> es que <span
-          class="code-line">outline</span> <b>NO OCUPA ESPACIO</b>, no genera que las cajas ni ningún elemento se
+          class="code-line">outline</span>
+        <b>NO OCUPA ESPACIO</b>, no genera que las cajas ni ningún elemento se
         muevan, no existe en el DOM, <b>TAN SOLO SE PINTA SOBRE LA CAJA</b>. <br> Comparte los MISMOS ESTILOS que border
         (solid, dotted, double, etc) y tienen la MISMA SINTAXIS.
         <br>
@@ -176,32 +198,14 @@
       </li>
     </ul>
     </p>
+  </div>
 
-    <hr class="line-hr" color="00c6ff">
 
-    <p>
-      Existen "dos (2) modelos de cajas" por así decirlo.
-    <ol class="lista">
-      <li><b>Caja Estándar: </b>Un contenedor estándar se le define ancho y alto (width/height), pero a partir de ahí,
-        todas las propiedades añadidas (padding, margin, etc.) se suman al valor total del ancho y alto del contenedor.
-      </li>
-      <li><b>Caja Alternativa: </b>Se define el ancho y alto de la caja (width/height) y va a ser la única medida
-        establecida, NO se verá afectada por las medidas de otras propiedades. Para que esto funcione, se debe poner
-        <span class="code-line">box-sizing: border-box;</span> dentro de la etiqueta <span class="high-txt">HTML
-          --></span><span class="code-line"> html { box-sizing: border-box; }</span> o definirlo para que afecte a TODOS
-        los elementos de la página, <span class="code-line">* { box-sizing: border-box; }</span>.
-        <br>
-        Esta es la forma mas usual, ya que defines el tamaño de algún elemento y lo respeta.
-      </li>
-    </ol>
-    </p>
-
-    <hr class="line-hr" color="00c6ff">
-
-    <!-- ***********************************************************
-           Subtitle Position property
+  <!-- ***********************************************************
+           PROPIEDAD POSITION | POSICIONAMIENTO DE CAJAS
       ************************************************************ -->
-    <h3 class="subtitle">Propiedad Position | Posicionamiento de cajas: </h3>
+  <h2 class="title-section">PROPIEDAD POSITION | POSICIONAMIENTO DE CAJAS</h2>
+  <div class="container90">
 
     <p>
       Como la palabra lo indica, es la forma de POSICIONAR ELEMENTOS, la forma en que se ubican las cajas dentro de
@@ -211,26 +215,28 @@
       Los principales son <b>top y left</b>, también se usan <b>right y bottom</b> pero aveces son innecesarios ya que
       con solo top y left se puede posicionar un elemento, el valor que le asignemos es la cantidad de espacio que se va
       a mover dentro de su caja padre. <br><br>
-      La propiedad <span class="code-line">position</span> tiene cuatro (4) formas de posicionar las cajas.
+      La propiedad <span class="code-line">position</span> tiene cuatro (4) formas de posicionar las cajas:
 
-    <ol class="lista">
       <!-- 1. Position relative -->
-      <li><b>relative: </b>Los elementos se posicionan de acuerdo al flujo del documento, osea en el orden que se haya
-        puesto en el HTML. <br> <span class="code-line">position: relative;</span> se desplaza la cantidad que uno
-        establezca en el <b>top & left</b> <span class="high-txt">PERO SIEMPRE CONSERVANDO SU ESPACIO ORIGINAL, NO ES
-          OCUPADO POR OTROS ELEMENTOS</span> y no afecta la posición de los otros, osea que el espacio que se le da al
-        elemento desde el principio, es el mismo, su espacio original se mantiene. <br><br>
 
-        <span class="cinta">Ejemplo</span>
-        <p>
-          Tenemos cuatro (4) cajas del mismo tamaño (100px x 100px) y diferente color, todas dentro de un contenedor
-          padre.
-        </p>
+    <h3 class="subtitle">Position: relative;</h3>
+    Los elementos se posicionan de acuerdo al flujo del documento, osea en el orden que se haya
+    puesto en el HTML. <br> <span class="code-line">position: relative</span> se desplaza la cantidad que uno
+    establezca en el <b>top & left</b> <span class="high-txt">PERO SIEMPRE CONSERVANDO SU ESPACIO ORIGINAL, NO ES
+      OCUPADO POR OTROS ELEMENTOS</span> y los siguientes elementos que se agreguen no afectan su posición inicial, osea
+    que el espacio que se le da al
+    elemento desde el principio, es el mismo, su espacio original se mantiene. <br>
 
-        <div class="container-source">
+    <span class="cinta">Ejemplo</span>
+    <p>
+      Tenemos cuatro (4) cajas del mismo tamaño (100px * 100px) y diferente color, todas dentro de un contenedor
+      padre.
+    </p>
 
-          <div class="container-source__html">
-            <textarea name="html-code" id="html-code" placeholder="HTML code example" readonly>
+    <div class="container-source">
+
+      <div class="container-source__html">
+        <textarea name="html-code" id="html-code" placeholder="HTML code example" readonly>
 &lt;div class="caja-padre"&gt;
   &lt;div class="caja caja1"&gt;Caja 1&lt;/div&gt;
   &lt;div class="caja caja2"&gt;Caja 2&lt;/div&gt; 
@@ -238,10 +244,10 @@
   &lt;div class="caja caja4"&gt;Caja 4&lt;/div&gt; 
 &lt;/div&gt; 
                 </textarea>
-          </div>
+      </div>
 
-          <div class="container-source__css">
-            <textarea name="css-code" id="css-code" placeholder="CSS code example" readonly>
+      <div class="container-source__css">
+        <textarea name="css-code" id="css-code" placeholder="CSS code example" readonly>
 .caja {
   width: 100px;
   height: 100px;
@@ -269,44 +275,50 @@
   background: white;
 }
                 </textarea>
-          </div>
+      </div>
 
-          <!-- Cajas RESULTADO -->
-          <div class="container-source__rtdo">
-            <div class="ej-caja ej-relative-caja1">Caja 1</div>
-            <div class="ej-caja ej-relative-caja2">Caja 2</div>
-            <div class="ej-caja ej-relative-caja3">Caja 3</div>
-            <div class="ej-caja ej-relative-caja4">Caja 4</div>
-          </div>
+      <!-- Cajas RESULTADO -->
+      <div class="container-source__rtdo">
+        <div class="ej-caja ej-relative-caja1">Caja 1</div>
+        <div class="ej-caja ej-relative-caja2">Caja 2</div>
+        <div class="ej-caja ej-relative-caja3">Caja 3</div>
+        <div class="ej-caja ej-relative-caja4">Caja 4</div>
+      </div>
 
-        </div>
+    </div>
 
-        <p>
-          <span class="high-txt">PODEMOS NOTAR QUE:</span> <br>
-        <ul class="lista">
-          <li>
-            Aunque hayamos desplazado el elemento con los valores del <b>top & left,</b> con <span class="code-line">
-              position: relative;</span> siempre se guarda el espacio inicialmente asignado para el
-            elemento.
-          </li>
-          <li>
-            La Caja 4 a pesar de ser la última agregada, se encuentra detrás de la Caja 3, pero la Caja 3 si
-            está encima de la Caja 2, esto pasa porque le escribimos <span class="code-line"> position: relative;</span>
-            a la Caja 3 y esta instrucción activa su <b>z-index</b>, osea el orden de posicionamiento. Si pusieramos
-            <span class="code-line"> position: relative;</span> en la Caja 4, automáticamente va a quedar por encima de
-            la Caja 3, ya que es el último elemento agregado y se posiciona por encima.
-          </li>
-        </ul>
-        </p>
+    <p>
+      <span class="high-txt">PODEMOS NOTAR QUE:</span> <br>
+    <ul class="lista">
+      <li>
+        Aunque hayamos desplazado el elemento con los valores del <b>top & left,</b> con <span class="code-line">
+          position: relative</span> siempre se guarda el espacio inicialmente asignado para el
+        elemento.
       </li>
-
-      <!-- 2. Position absolute -->
-      <li><b>absolute: </b></li>
-      <li><b>fixed: </b></li>
-      <li><b>sticky: </b></li>
-    </ol>
-    Después va explicación de Z-INDEX.
+      <li>
+        La Caja 4 a pesar de ser la última agregada, se encuentra detrás de la Caja 3, pero la Caja 3 si
+        está encima de la Caja 2, esto pasa porque le escribimos <span class="code-line"> position: relative</span>
+        a la Caja 3 y esta instrucción activa su <b>z-index</b>, osea el orden de posicionamiento (<a href="#z-index"
+          class="link">Ver explicación <b>z-index</b>
+          aquí</a>). Si pusieramos<span class="code-line"> position: relative</span> en la Caja 4, automáticamente
+        va a quedar por encima de la Caja 3, ya que es el último elemento agregado y se posiciona por encima.
+      </li>
+    </ul>
     </p>
+
+    <!-- 2. Position absolute -->
+    <h3 class="subtitle">absolute: </h3>
+    <h3 class="subtitle">fixed: </h3>
+    <h3 class="subtitle">sticky: </h3>
+
+    </p>
+
+    <!-- ***********************************************************
+               Subtitle z-index
+          ************************************************************ -->
+    <h3 class="subtitle" id="z-index">z-index | Concepto de apilamiento: </h3>
+
+
   </div>
 
   <!-- ***********************************************************
