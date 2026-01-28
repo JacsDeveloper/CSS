@@ -235,7 +235,7 @@
 
     <div class="container-source">
 
-      <div class="container-source__html">
+      <div class="source-relative__html">
         <textarea name="html-code" id="html-code" placeholder="HTML code example" readonly>
 &lt;div class="caja-padre"&gt;
   &lt;div class="caja caja1"&gt;Caja 1&lt;/div&gt;
@@ -246,7 +246,7 @@
                 </textarea>
       </div>
 
-      <div class="container-source__css">
+      <div class="source-relative__css">
         <textarea name="css-code" id="css-code" placeholder="CSS code example" readonly>
 .caja {
   width: 100px;
@@ -278,7 +278,7 @@
       </div>
 
       <!-- Cajas RESULTADO -->
-      <div class="container-source__rtdo">
+      <div class="source-relative__rtdo">
         <div class="ej-caja ej-relative-caja1">Caja 1</div>
         <div class="ej-caja ej-relative-caja2">Caja 2</div>
         <div class="ej-caja ej-relative-caja3">Caja 3</div>
@@ -307,19 +307,334 @@
     </p>
 
     <!-- 2. Position absolute -->
-    <h3 class="subtitle">absolute: </h3>
-    <h3 class="subtitle">fixed: </h3>
-    <h3 class="subtitle">sticky: </h3>
 
+    <h3 class="subtitle">Position: absolute; </h3>
+
+    Aquí <b>los elementos salen del flujo normal del documento</b>, flota sobre los demás elementos, flota sobre el
+    diseño y
+    permite colocarlos donde uno quiera usando su top, left, right, bottom.
+    <ul class="lista">
+      <li>El elemento no ocupa espacio</li>
+      <li>No empuja ni afecta a otros elementos</li>
+      <li>El navegador actúa como si no existieran para el layout</li>
+      <li>No aportan altura al contenedor padre, es decir, el contenedor padre no auto ajusta su altura (o sus
+        dimensiones
+        width/height).</li>
+    </ul>
+
+    <hr class="line-hr" color="00c6ff">
+
+    <p>
+      Ahora bien: <br>
+    <ol class="lista">
+      <li><span class="code-line">Position: absolute</span> tiene como punto de referencia la
+        posición de su contenedor padre más cercano, es decir, si el contenedor padre <span class="high-txt">NO tiene
+          posición definida</span><span class="code-line">(position: relative)</span>, se posiciona en relación al
+        viewport (la ventana del navegador), porque su contenedor padre mas cercano vendría siendo la etiqueta <span
+          class="code-line">&lt;html&gt;</span>.
+      </li>
+      <li>Si el contenedor padre SI tiene posición definida <span class="code-line">(position: relative)</span>,
+        entonces las hijas se posicionan en relación a ese contenedor padre como punto de referencia. <br> Al momento de
+        poner <span class="code-line">position: absolute</span> en las cajas hijas y manipular sus valores de top, left,
+        right, bottom, las cajas se van a mover dentro de su contenedor padre, <span class="high-txt">PERO EL PADRE NO
+          AUTO AJUSTA SU TAMAÑO</span>. El padre no las cuenta para definir su tamaño, por ende, el padre colapsa (queda
+        pequeño).
+      </li>
+      <li>El contenedor padre <b>SI permite cambiar su tamaño si se le asigna un width/height fijo</b>, pero no se
+        auto ajusta dependiendo de las cajas hijas que contenga.
+        <br><br>
+
+        <span class="high-txt"><u>VEAMOS ESTOS EJEMPLOS PARA ILUSTRAR LO ANTERIOR: </u></span>
+      </li>
+    </ol>
+    </p>
+    <br>
+
+    <span class="cinta">Ejemplos aclaratorios: </span>
+    <br>
+    <p>
+      Tenemos cuatro (4) cajas del mismo tamaño (100px * 100px) y diferente color, todas dentro de un contenedor
+      padre.
+    </p><br>
+
+    <!-- Ejemplo 1 -->
+
+    <span class="cinta">Ejemplo 1: </span>
+    <p>
+      Si el contenedor padre <b>NO tiene posición definida</b> <span class="code-line">(<s>position:
+          relative</s>)</span>:
+
+    <div class="container-img-vid-absolute">
+      <img src="/IMAGES/screenshot-absolute.png" alt="Pantallazo de comportamiento de position absolute"
+        title="Pantallazo de comportamiento de position absolute" class="img" />
+      <video src="/IMAGES/vid-absolute.mp4" alt="Video de comportamiento de position absolute"
+        title="Video de comportamiento de position absolute" class="img" controls></video>
+    </div>
+    <br><br>
+
+    Es cuando decíamos que las cajas hijas no tienen punto de referencia y toman como caja padre mas cercano el
+    <span class="code-line">&lt;html&gt;</span>.
     </p>
 
-    <!-- ***********************************************************
-               Subtitle z-index
-          ************************************************************ -->
-    <h3 class="subtitle" id="z-index">z-index | Concepto de apilamiento: </h3>
+    <hr class="line-hr" color="00c6ff">
+
+    <!-- Ejemplo 2 -->
+
+    <span class="cinta">Ejemplo 2: </span>
+
+    <p>
+      Si el contenedor padre <b>SI tiene posición definida</b> <span class="code-line">(position: relative)</span>:
+    </p>
+
+    <div class="container-source">
+
+      <div class="source-absolute__html">
+        <textarea name="html-code" id="html-code" placeholder="HTML code example" readonly>
+    &lt;div class="caja-padre"&gt;
+      &lt;div class="caja caja1"&gt;Caja 1&lt;/div&gt;
+      &lt;div class="caja caja2"&gt;Caja 2&lt;/div&gt; 
+      &lt;div class="caja caja3"&gt;Caja 3&lt;/div&gt; 
+      &lt;div class="caja caja4"&gt;Caja 4&lt;/div&gt; 
+    &lt;/div&gt; 
+                    </textarea>
+      </div>
+
+      <div class="source-absolute__css">
+        <textarea name="css-code" id="css-code" placeholder="CSS code example" readonly>
+    .caja-padre {
+      position: relative;
+    }
+
+    .caja {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .caja1 {
+      background: yellow;
+      position: absolute;
+      top: 10px;
+      left: 30px;
+    }
+    
+    .caja2 {
+      background: blue;
+      position: absolute;
+      top: 100px;
+      left: 60px;
+    }
+    
+    .caja3 {
+      background: red;
+      position: absolute;
+      top: 190px;
+      left: 90px;
+    }
+    
+    .caja4 {
+      background: white;
+      position: absolute;
+      top: 280px;
+      left: 120px;
+    }
+                    </textarea>
+      </div>
+
+      <!-- Cajas RESULTADO -->
+      <div class="source-absolute__rtdo">
+        <div class="ej-caja ej-absolute-caja1">Caja 1</div>
+        <div class="ej-caja ej-absolute-caja2">Caja 2</div>
+        <div class="ej-caja ej-absolute-caja3">Caja 3</div>
+        <div class="ej-caja ej-absolute-caja4">Caja 4</div>
+      </div>
+
+    </div>
+
+    <p>
+      <span class="high-txt">SUPONGAMOS QUE:</span> <br>
+    <ul class="lista">
+      <li>
+        <b>Tenemos mucho texto, imágenes, botones y los elementos que sean</b> .... Lorem ipsum, dolor sit amet
+        consectetur
+        adipisicing elit. Quidem natus voluptatum, mollitia sequi ratione qui delectus ipsa necessitatibus dolorem harum
+        dolores a iusto? Saepe inventore pariatur, officiis sint eius quod. Sunt qui quaerat nisi dolorum accusantium
+        aspernatur animi saepe vero. Cumque sit sapiente ratione voluptates beatae harum illum laboriosam nisi est
+        maiores eligendi, deleniti sint non repudiandae ipsum magni? Totam dicta perferendis cumque nemo quaerat harum.
+        Aspernatur, itaque et! Sit nulla a necessitatibus. Suscipit impedit laboriosam ipsam nulla quis necessitatibus
+        consectetur ipsa sapiente unde! Nobis nisi consectetur dolorem quia delectus deleniti voluptatem veniam quae
+        dolorum. Sit tempore molestias deserunt voluptatibus?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Asperiores accusamus esse impedit, odio dolorum, alias quam soluta fugiat ratione debitis error cupiditate odit
+        molestias pariatur dicta quo doloribus nemo ab placeat deserunt. Pariatur soluta, ratione recusandae
+        consequuntur aliquam quisquam ab excepturi unde dolor, atque obcaecati dignissimos rerum, distinctio tempora
+        culpa laborum laboriosam porro voluptate nam similique nulla. Animi sunt consectetur temporibus nisi modi
+        consequuntur eius, expedita aperiam et odio! Laborum minima quas voluptates aliquam debitis quod, repudiandae
+        tenetur perspiciatis a neque ipsum id temporibus itaque hic corporis sint corrupti culpa voluptas nemo omnis,
+        amet nam laboriosam quo fugit? Veniam, atque.
+      </li>
+      <li>
+        <div class="explicacion-absolute-sobrepone">
+          Como se puede evidenciar, las cajas con <span class="code-line">position: absolute</span> se pintan pero
+          flotan sobre el diseño, no empuja ni afecta a otros elementos, como si no existieran para el layout, pero sin
+          embargo, se posicionan tal cual como uno les indique con los valores de <b>top & left</b>. <br>
+          <span class="high-txt">IMPORTANTE: </span>Ya no se ubican por allá arriba en el borde de la página, ahora se
+          pintan tomando como referencia el contenedor padre el cual tiene <span class="code-line">position:
+            relative</span>, sin embargo, como ya se había dicho, esto no implica que el contenedor padre auto ajuste su
+          tamaño, por ende, colapsa y queda pequeño.
+        </div>
+      </li>
+    </ul>
+    </p>
+
+    <hr class="line-hr" color="00c6ff">
+
+
+    <!-- Ejemplo 3 -->
+
+    <span class="cinta">Ejemplo 3: </span>
+
+    <p>
+      El contenedor padre tiene <span class="code-line">position: relative</span> y le definimos un height fijo
+      (500px para este ejemplo):
+    </p>
+
+    <div class="container-source">
+
+      <div class="source-absolute__html">
+        <textarea name="html-code" id="html-code" placeholder="HTML code example" readonly>
+        &lt;div class="caja-padre"&gt;
+          &lt;div class="caja caja1"&gt;Caja 1&lt;/div&gt;
+          &lt;div class="caja caja2"&gt;Caja 2&lt;/div&gt; 
+          &lt;div class="caja caja3"&gt;Caja 3&lt;/div&gt; 
+          &lt;div class="caja caja4"&gt;Caja 4&lt;/div&gt; 
+        &lt;/div&gt; 
+                        </textarea>
+      </div>
+
+      <div class="source-absolute__css">
+        <textarea name="css-code" id="css-code" placeholder="CSS code example" readonly>
+        .caja-padre {
+          position: relative;
+          height: 500px;
+        }
+    
+        .caja {
+          width: 100px;
+          height: 100px;
+        }
+        
+        .caja1 {
+          background: yellow;
+          position: absolute;
+          top: 10px;
+          left: 30px;
+        }
+        
+        .caja2 {
+          background: blue;
+          position: absolute;
+          top: 100px;
+          left: 60px;
+        }
+        
+        .caja3 {
+          background: red;
+          position: absolute;
+          top: 190px;
+          left: 90px;
+        }
+        
+        .caja4 {
+          background: white;
+          position: absolute;
+          top: 280px;
+          left: 120px;
+        }
+                        </textarea>
+      </div>
+
+      <!-- Cajas RESULTADO -->
+      <div class="source-absolute-ej3__rtdo">
+        <div class="ej-caja ej-absolute-caja1">Caja 1</div>
+        <div class="ej-caja ej-absolute-caja2">Caja 2</div>
+        <div class="ej-caja ej-absolute-caja3">Caja 3</div>
+        <div class="ej-caja ej-absolute-caja4">Caja 4</div>
+      </div>
+
+    </div>
+
+
+    <!-- Position fixed y sticky -->
+
+    <h3 class="subtitle">Position: fixed; </h3>
+    <p>
+      Los elementos con <span class="code-line">position: fixed</span> se posicionan en relación al viewport (la
+      ventana del navegador), es decir, siempre van a estar visibles en la pantalla, qudan fijadosaunque se haga scroll
+      hacia abajo o hacia arriba, tal cual como está el header de esta página. <br>
+      Se usan mucho para menús de navegación fijos, botones de subir y bajar página, etc.
+    </p>
+
+
+
+    <h3 class="subtitle">Position: sticky; </h3>
+    <p>
+      Los elementos con <span class="code-line">position: sticky</span> se comportan como <span
+        class="code-line">relative</span> hasta que se
+      alcanza un umbral definido por los valores de <b>top, left, bottom, right</b>, una vez se alcanza ese umbral,
+      el elemento se comporta como <span class="code-line">fixed</span>, quedando fijo en la pantalla. Tal cual como los
+      títulos de esta página, que después de alcanzar los <b>top: 37px</b> se queda fijado debajo del header.<br>
+      Se usa mucho para menús de navegación que quedan fijos al llegar a cierta parte de la página.
+    </p>
+
+    <!-- z-index -->
+
+    <h3 class="subtitle" id="z-index">Z-index: </h3>
+    <p>
+      <span class="code-line">Z-index</span> controla qué elemento se ve encima de otro cuando se superponen. Maneja el
+      eje Z (profundidad), entre mayor sea el valor del z-index más al frente va a superponerse el elemento y así mismo
+      entre menor z-index = más al fondo. El valor puede ser positivo o negativo. Piensa en capas, como en Photoshop.
+      <br><br>
+
+    <figure>
+      <img class="img" src="/IMAGES/img-z-index.png" title="Sintaxis de z-index"
+        alt="Imagen de la sintaxis de z-index" />
+      <figcaption class="cite">Img. z-index syntax/Sintaxis de z-index.</figcaption>
+    </figure>
+    </p>
+
+    <!-- Ventanas MODAL -->
+
+    <h3 class="subtitle">Ventanas MODAL </h3>
+    <p>
+      <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus incidunt ratione magnam? Voluptates,
+        eligendi! Laborum molestiae doloremque iusto ad, fugiat amet similique totam vero consequatur obcaecati rem
+        veritatis delectus tempore voluptas rerum perferendis voluptatem magni nulla, nesciunt nam dolore! Maiores odio
+        optio modi, dolor mollitia sed exercitationem, doloribus officia, assumenda ipsam eveniet ea? Unde expedita cum
+        adipisci rem. Voluptas numquam in rerum accusamus soluta molestiae adipisci? Quis molestiae eveniet, ex
+        mollitia, non nulla in fugit, omnis asperiores laboriosam cum! Quis tempore ea ab reiciendis sapiente blanditiis
+        labore debitis temporibus eaque odit quas at, ut praesentium, fuga illo cum, tenetur facere.</b>
+    </p>
+
+  </div>
+
+
+  <!-- ***********************************************************
+             PROPIEDAD DISPLAY
+        ************************************************************ -->
+  <h2 class="title-section">PROPIEDAD DISPLAY</h2>
+
+  <div class="container90">
+
+
+
 
 
   </div>
+
+
+
+
+
+
 
   <!-- ***********************************************************
          FOOTER
