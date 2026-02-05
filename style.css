@@ -353,3 +353,73 @@ body {
   border-radius: 7px;
   background: rgba(0, 0, 0, 0.05);
 }
+
+/********* container-source-display *********/
+
+.container-source-display {
+  margin: 30px 0;
+  padding: 9px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 9px;
+  border-radius: 7px;
+  box-shadow: 1px 2px 17px 7px rgba(0, 0, 0, 0.1);
+}
+
+.source-display__html,
+.source-display__css,
+.source-display__rtdo {
+  outline: solid 0.3px var(--electronBlue);
+  position: relative;
+  border-radius: 7px;
+}
+
+.container-source-display textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px 0 0 17px;
+  font-size: 1em;
+  border: none;
+  color: white;
+  background: rgba(0, 0, 0, 0.53);
+  border-radius: 7px;
+  resize: none;
+}
+
+.source-display__html {
+  grid-row: 1;
+}
+
+.source-display__css {
+  grid-row: 2;
+}
+
+.source-display__rtdo {
+  grid-row: 3;
+}
+
+.source-display__html::after,
+.source-display__css::after,
+.source-display__rtdo::after {
+  position: absolute;
+  top: -17px;
+  right: 19px;
+  padding: 3px 7px;
+  border-radius: 7px;
+  color: white;
+  font-weight: 700;
+  background: var(--electronBlue);
+  box-shadow: 0 3px 17px rgba(255, 255, 255, 0.17);
+}
+
+.source-display__html::after {
+  content: "HTML";
+}
+
+.source-display__css::after {
+  content: "CSS";
+}
+
+.source-display__rtdo::after {
+  content: "RTDO";
+}
