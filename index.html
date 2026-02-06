@@ -621,71 +621,85 @@
 
     <h3 class="subtitle">display: block;</h3>
     <p>
-      Los elementos se comportan como bloques, ocupan todo el ancho disponible y comienzan en una nueva línea.
+
+    <ul class="lista">
+      <li>Los elementos se comportan como bloques, ocupan todo el ancho disponible y comienzan en una nueva línea
+        posicionando al siguiente elemento debajo.</li>
+      <li>Permite definir <b>width, height, margin y padding.</b></li>
+      <li>Ejemplos de elementos con <b>display: block: </b><span class="code-line">div, h1-h6,
+          p, header, footer, section, article, ul, li </span>(por mencionar los comunes, pueden haber más).</li>
+    </ul>
 
     <div class="container-source-display">
 
       <div class="source-display__html">
         <textarea name="html-code" placeholder="HTML code example" readonly>
-      &lt;div class="caja-padre"&gt;
-        &lt;div class="caja caja1"&gt;Caja 1&lt;/div&gt;
-        &lt;div class="caja caja2"&gt;Caja 2&lt;/div&gt; 
-        &lt;div class="caja caja3"&gt;Caja 3&lt;/div&gt; 
-        &lt;div class="caja caja4"&gt;Caja 4&lt;/div&gt; 
-      &lt;/div&gt; 
+&lt;header class="diseño">HEADER&lt;/header&gt;
+&lt;div class="diseño">SOY UN DIV - SOY UN DIV - SOY UN DIV&lt;/div&gt;
+&lt;h1 class="diseño">Titulo h1&lt;/h1&gt;
+&lt;h2 class="diseño">Titulo h2&lt;/h2&gt;
+&lt;h3 class="diseño">Titulo h3&lt;/h3&gt;
+&lt;p class="diseño">Soy un párrafo - Soy un párrafo - Soy un párrafo - Soy un párrafo - Lorem ipsum
+  dolor sit amet consectetur adipisicing elit. Delectus, dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+  Dolore amet iste repellendus voluptate reiciendis error nobis consectetur deleniti fugit harum? Iusto sint nobis esse unde?&lt;/p&gt;
+&lt;footer class="diseño">FOOTER&lt;/footer&gt;
                       </textarea>
       </div>
 
       <div class="source-display__css">
         <textarea name="css-code" placeholder="CSS code example" readonly>
-      .caja {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .caja1 {
-        background: yellow;
-      }
-      
-      .caja2 {
-        background: blue;
-        position: relative;
-        top: 23px;
-        left: 20px;
-      }
-      
-      .caja3 {
-        background: red;
-        position: relative;
-        top: 10px;
-        left: 33px;
-      }
-      
-      .caja4 {
-        background: white;
-      }
+.diseño {
+margin: 10px 0;
+padding: 5px;
+background: white;
+color: black;
+}
                       </textarea>
       </div>
 
       <!-- Cajas RESULTADO -->
       <div class="source-display__rtdo">
-        <div class="ej-caja ej-relative-caja1">Caja 1</div>
-        <div class="ej-caja ej-relative-caja2">Caja 2</div>
-        <div class="ej-caja ej-relative-caja3">Caja 3</div>
-        <div class="ej-caja ej-relative-caja4">Caja 4</div>
+        <header class="ej-display">HEADER</header>
+        <div class="ej-display">SOY UN DIV - SOY UN DIV - SOY UN DIV</div>
+        <h1 class="ej-display">Titulo h1</h1>
+        <h2 class="ej-display">Titulo h2</h2>
+        <h3 class="ej-display">Titulo h3</h3>
+        <p class="ej-display">Soy un párrafo - Soy un párrafo - Soy un párrafo - Soy un párrafo - Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Delectus, dignissimos. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Voluptas vel, possimus facere itaque est et corrupti iste cupiditate numquam, doloribus
+          ipsam sit, debitis sequi. Quos! </p>
+        <footer class="ej-display">FOOTER</footer>
       </div>
 
     </div>
 
     </p>
+
+    <!-- display: inline -->
+
     <h3 class="subtitle">display: inline;</h3>
     <p>
-      Los elementos se comportan como en línea, ocupan solo el espacio necesario y no comienzan en una nueva línea.
+    <ul class="lista">
+      <li>Los elementos se comportan como en línea, ocupan solo el espacio necesario y no comienzan en una nueva línea.
+      </li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
     </p>
+
+
+    <!-- display: inline-block -->
+
     <h3 class="subtitle">display: inline-block;</h3>
     <p>
       Los elementos se comportan como en línea, pero permiten definir ancho y alto (width/height).
     </p>
+
+
+    <!-- display: none -->
+
     <h3 class="subtitle">display: none;</h3>
     <p>
       Los elementos no se muestran en la página y no ocupan espacio en el diseño.
