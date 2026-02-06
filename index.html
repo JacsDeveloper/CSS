@@ -626,7 +626,7 @@
       <li>Los elementos se comportan como bloques, ocupan todo el ancho disponible y comienzan en una nueva línea
         posicionando al siguiente elemento debajo.</li>
       <li>Permite definir <b>width, height, margin y padding.</b></li>
-      <li>Ejemplos de elementos con <b>display: block: </b><span class="code-line">div, h1-h6,
+      <li>Ejemplos de elementos que por defecto son <b>display: block: </b><span class="code-line">div, h1-h6,
           p, header, footer, section, article, ul, li </span>(por mencionar los comunes, pueden haber más).</li>
     </ul>
 
@@ -680,12 +680,50 @@ color: black;
     <h3 class="subtitle">display: inline;</h3>
     <p>
     <ul class="lista">
-      <li>Los elementos se comportan como en línea, ocupan solo el espacio necesario y no comienzan en una nueva línea.
+      <li>El elemento solo ocupa el espacio de su contenido, no inicia en una nueva línea, se coloca uno al lado del
+        otro en la misma linea.</li>
       </li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>No permite definir <b>width ni height.</b></li>
+      <li>Margin vertical no funciona correctamente, lo aplica de mala manera. De forma abrupta y no se comporta como se
+        espera.</li>
+      <li>Ejemplos de elementos que por defecto son <b>display: inline: </b><span class="code-line">span, a, strong, em,
+          label
+        </span>(por mencionar los comunes, pueden haber más).</li>
     </ul>
+
+    <div class="container-source-display">
+
+      <div class="source-display__html">
+        <textarea name="html-code" placeholder="HTML code example" readonly>
+&lt;span class="diseño"&gt;Soy un span&lt;/span&gt;
+&lt;a href="#" class="diseño"&gt;Soy un enlace etiqueta &amp;lt; a &amp;gt;&lt;/a&gt;
+&lt;strong class="diseño"&gt;Texto fuerte Strong&lt;/strong&gt;
+&lt;em class="diseño"&gt;Soy emphasis&lt;/em&gt;
+&lt;label class="diseño"&gt;Soy un label&lt;/label&gt;
+                          </textarea>
+      </div>
+
+      <div class="source-display__css">
+        <textarea name="css-code" placeholder="CSS code example" readonly>
+    .diseño {
+    margin: 10px 0;
+    padding: 5px;
+    background: white;
+    color: black;
+    }
+                          </textarea>
+      </div>
+
+      <!-- Cajas RESULTADO -->
+      <div class="source-display__rtdo">
+        <span class="ej-display">Soy un span</span>
+        <a href="#" class="ej-display">Soy un enlace etiqueta <span class="code-line">&lt;a&gt;</span></a>
+        <strong class="ej-display">Texto fuerte Strong</strong>
+        <em class="ej-display">emphasis</em>
+        <label class="ej-display">Label</label>
+      </div>
+
+    </div>
 
     </p>
 
@@ -694,7 +732,75 @@ color: black;
 
     <h3 class="subtitle">display: inline-block;</h3>
     <p>
-      Los elementos se comportan como en línea, pero permiten definir ancho y alto (width/height).
+    <ul class="lista">
+      <li>Se comporta como inline, es decir, se coloca en línea con otros elementos (no salta de línea), pero permite
+        width, height, margin y padding como block.</li>
+      <li>Con base en todo lo anterior, si queremos que un elemento se comporte como inline pero tenga las propiedades
+        de block, o viceversa, queremos que un elemento bloque se ubique con los otros elementos en línea, usamos <span
+          class="code-line">display: inline-block;</span></li>
+    </ul>
+
+    <div class="container-source-display">
+
+      <div class="source-display__html">
+        <textarea name="html-code" placeholder="HTML code example" readonly>
+&lt;h1 class="in-block"&gt;TITULO H1&lt;/h1&gt;
+&lt;span class="in-block mod-span"&gt;Soy un span&lt;/span&gt;
+&lt;a href="#" class="in-block mod-a"&gt;Soy un enlace etiqueta &lt;span
+class="code-line"&gt;&lt;a&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;div class="in-block"&gt;SOY UN DIV - SOY UN DIV - SOY UN DIV&lt;/div&gt;
+&lt;em class="in-block"&gt;emphasis&lt;/em&gt;
+&lt;label class="in-block mod-label"&gt;Label&lt;/label&gt;
+                              </textarea>
+      </div>
+
+      <div class="source-display__css">
+        <textarea name="css-code" placeholder="CSS code example" readonly>
+.in-block {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 5px;
+  background: white;
+  color: black;
+  }
+.mod-span {
+  margin: 20px;
+}
+.mod-a{
+  padding: 20px 50px;
+}
+.mod-label{
+  margin: 0 0 0 70px;
+  padding: 10px 0 0 70px;
+}
+                              </textarea>
+      </div>
+
+      <!-- Cajas RESULTADO -->
+      <div class="source-display__rtdo">
+        <h1 class="ej-display-IB">TITULO H1</h1>
+        <span class="ej-display-IB ej-display-span">Soy un span</span>
+        <a href="#" class="ej-display-IB ej-display-a">Soy un enlace etiqueta <span
+            class="code-line">&lt;a&gt;</span></a>
+        <div class="ej-display-IB">SOY UN DIV - SOY UN DIV - SOY UN DIV</div>
+        <em class="ej-display-IB">emphasis</em>
+        <label class="ej-display-IB ej-display-label">Label</label>
+      </div>
+
+    </div>
+
+    <span class="high-txt">PODEMOS NOTAR QUE: </span>
+    <br><br>
+
+    <ul class="lista">
+      <li>Aunque <span class="code-line">h1</span> y <span class="code-line">div</span> son elementos de bloque, al
+        tener <span class="code-line">display: inline-block;</span> se comportan como elementos en línea.</li>
+      <li>El elemento <span class="code-line">span, a, label</span> son elementos inline por defecto, pero como tiene
+        <span class="code-line">display: inline-block;</span> dejó modificar su margin y padding satisfactoriamente tal
+        cual como un elemento bloque.
+      </li>
+    </ul>
+
     </p>
 
 
@@ -702,12 +808,30 @@ color: black;
 
     <h3 class="subtitle">display: none;</h3>
     <p>
-      Los elementos no se muestran en la página y no ocupan espacio en el diseño.
+      Los elementos no se muestran en la página y no ocupan espacio en el diseño. <br>
+      Se usa mucho para ocultar elementos, como por ejemplo, un menú de navegación en dispositivos móviles, o un botón
+      cualquiera, que al hacer click, se le asigna <span class="code-line">display: none;</span>
+      para ocultarlo, y al hacer click nuevamente se le asigna <span class="code-line">display: block;</span> para
+      mostrarlo. <br>
     </p>
-
-
-
+    <!-- Fin propiedad display -->
   </div>
+
+  <!-- ***********************************************************
+               Desbordamiento (Overflow)
+          ************************************************************ -->
+  <h2 class="title-section">PROPIEDAD OVERFLOW (DESBORDAMIENTO)</h2>
+
+  <div class="container90">
+
+
+
+
+
+
+    <!-- Fin Desbordamiento (Overflow) -->
+  </div>
+
 
 
 

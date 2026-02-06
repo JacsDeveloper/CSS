@@ -419,9 +419,27 @@ body {
   content: "RTDO";
 }
 
-.ej-display {
+.ej-display,
+.ej-display-IB {
   margin: 10px 0;
   padding: 5px;
   background: white;
   color: black;
+}
+
+.ej-display-IB {
+  display: inline-block;
+}
+
+.ej-display-span {
+  margin: 20px;
+}
+
+.ej-display-a {
+  padding: 20px 50px;
+}
+
+.ej-display-label {
+  margin: 0 0 0 70px;
+  padding: 10px 0 0 70px;
 }
